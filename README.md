@@ -1,6 +1,7 @@
 # Integrated Land–Water Mobility Simulation
 A compact, reproducible prototype of an **integrated land–water simulation platform** for passenger transport by autonomous surface vessels (ASVs). A *traveller model* (binary logit between a vessel chain and a metro chain) and an *operator model* (dispatch of a small ASV fleet) are coupled to the open-source simulator SUMO.
 
+> Note: The code in this repo were developed with the assistance of an AI coding tool. All generated code has been reviewed, tested and is maintained by the author, who takes full responsibility for its correctness and for the results reported here.
 ---
 
 ## 1. Study scenario
