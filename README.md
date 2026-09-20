@@ -124,20 +124,29 @@ Same demand (300 travellers, 40 min, seed 1), bus every 300 s, metro every 300 s
 *Table 1. Metro every 300 s. "Empty departures" counts sailings that left the west dock without passengers, out of all
 departures from that dock; the empty returns are excluded because they are unavoidable.
 
-1. **Supply and demand interact.** One vessel saturates: the published wait reaches 9–14 min and about 60 % of travellers
-   switch to the metro. Three vessels bring the wait below one minute and the chains reach equilibrium (740 vs 747 s
-   door-to-door) with a 79 % vessel share.
-2. **On-demand dispatch dominates the timetable** at equal fleet size: shorter waits, higher share and load factor,
-   and no avoidable empty sailings (0 empty departures against 17–43 % under the timetable), hence 43–50 m sailed per
-   passenger against 50–89 m. The total empty share stays near 50 % under both policies because every loaded crossing
-   needs an empty return in this one-directional peak; only return demand could lower it.
-3. **Transfer coordination outweighs frequency, in the travellers' expectations.** Doubling the metro frequency does
-   not reduce the vessel share: it is higher in four of the six pairs in Table 2 and lower only where the vessel
-   service is saturated and the published wait dominates the choice. The cause is the planned transfer. The bus reaches
-   the hub at +190 s of its cycle and the walk to the station takes about 100 s; a train every 300 s (departing +330 s)
-   is expected 40 s after arrival, a train every 120 s (+390 s) 100 s after. Travellers choose on these timetable-based
-   expectations, so the more frequent metro looks *slower* at the hub. A single random seed is used, so differences of
-   a few percentage points are within noise.
+**1. Supply and demand interact.**
+
+* One vessel saturates: the published wait reaches 9–14 min and about 60 % of travellers switch to the metro.
+* Three vessels bring the wait below one minute; the two chains reach equilibrium (740 vs 747 s door-to-door) and the
+  vessel share rises to 79 %.
+
+**2. On-demand dispatch dominates the timetable at equal fleet size.**
+
+* Shorter waits, higher share and higher load factor in every pair of Table 1.
+* No avoidable empty sailings: 0 empty departures, against 17–43 % under the timetable.
+* Hence 43–50 m sailed per passenger, against 50–89 m.
+* The total empty share stays near 50 % under both policies: every loaded crossing needs an empty return in this
+  one-directional peak, and only return demand could lower it.
+
+**3. Transfer coordination outweighs frequency, in the travellers' expectations.**
+
+* Doubling the metro frequency does not reduce the vessel share: it is higher in four of the six pairs in Table 2 and
+  lower only where the vessel service is saturated and the published wait dominates the choice.
+* The cause is the planned transfer: the bus reaches the hub at +190 s of its cycle and the walk to the station takes
+  about 100 s, so a train every 300 s (departing +330 s) is expected 40 s after arrival, a train every 120 s (+390 s)
+  100 s after.
+* Travellers choose on these timetable-based expectations, so the more frequent metro looks *slower* at the hub.
+* A single random seed is used; differences of a few percentage points are within noise.
 
 | Vessels | Policy | ASV share, metro 300 s | ASV share, metro 120 s |
 |---|---|---|---|
