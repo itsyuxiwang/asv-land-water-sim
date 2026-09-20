@@ -70,16 +70,6 @@ Both runs use two vessels of 12 passengers, a metro every 300 s and the same 300
 
 *Figure 4. Demand-responsive policy (depart when full or after 120 s of waiting; idle vessels return to the west dock). Same panels.*
 
-| | Timetable (Fig. 3) | Demand-responsive (Fig. 4) |
-|---|---|---|
-| ASV share | 55 % | 61 % |
-| Mean / max pier wait | 151 s / 333 s | 120 s / 358 s |
-| Door-to-door ASV / Metro | 835 / 766 s | 795 / 768 s |
-| Sailings (empty) | 47 (32) | 36 (18) |
-| Load factor | 29 % | 42 % |
-| Distance sailed empty | 68 % | 48 % |
-| Published wait, range | 35–319 s | 10–226 s |
-
 **Left panels — queue and published wait**
 
 * Queue peaks (34–36 travellers around 1 200–1 500 s) are alike in both runs: each bus unloads more travellers at once
