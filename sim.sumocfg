@@ -1,0 +1,9 @@
+<configuration>
+  <input>
+    <net-file value="net.net.xml"/>
+    <route-files value="pt_lines.rou.xml"/>
+    <additional-files value="stops.add.xml"/>
+  </input>
+  <time><begin value="0"/><end value="3600"/><step-length value="1"/></time>
+  <report><no-step-log value="true"/><no-warnings value="true"/></report>
+</configuration>

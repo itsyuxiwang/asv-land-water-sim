@@ -1,0 +1,18 @@
+<edges>
+  <edge id="road_in" from="T0" to="J" numLanes="1" speed="13.9" sidewalkWidth="2" allow="bus"/>
+  <edge id="road_out" from="J" to="T0" numLanes="1" speed="13.9" sidewalkWidth="2" allow="bus"/>
+  <edge id="link_pier" from="J" to="Wd" numLanes="1" width="3" allow="pedestrian"/>
+  <edge id="pier" from="Wd" to="P" numLanes="1" width="3" allow="pedestrian"/>
+  <edge id="E_out" from="Ed" to="E1" numLanes="1" width="3" allow="pedestrian"/>
+  <edge id="office" from="E1" to="E2" numLanes="1" width="3" allow="pedestrian"/>
+  <edge id="link_metro" from="J" to="Mw0" numLanes="1" width="3" allow="pedestrian"/>
+  <edge id="st_W" from="Mw0" to="Mw1" numLanes="1" speed="16" allow="rail_urban" sidewalkWidth="3"/>
+  <edge id="rail_1" from="Mw1" to="R1" numLanes="1" speed="16" allow="rail_urban"/>
+  <edge id="rail_2" from="R1" to="R2" numLanes="1" speed="16" allow="rail_urban"/>
+  <edge id="rail_3" from="R2" to="Me0" numLanes="1" speed="16" allow="rail_urban"/>
+  <edge id="st_E" from="Me0" to="Me1" numLanes="1" speed="16" allow="rail_urban" sidewalkWidth="3"/>
+  <edge id="link_metroE" from="Me1" to="E1" numLanes="1" width="3" allow="pedestrian"/>
+  <edge id="rail_4" from="Me1" to="R3" numLanes="1" speed="16" allow="rail_urban"/>
+  <edge id="rail_5" from="R3" to="R4" numLanes="1" speed="16" allow="rail_urban"/>
+  <edge id="rail_6" from="R4" to="Mw0" numLanes="1" speed="16" allow="rail_urban"/>
+</edges>

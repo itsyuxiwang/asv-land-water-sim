@@ -1,0 +1,17 @@
+<routes>
+  <vType id="bus" vClass="bus" length="12" personCapacity="60" color="255,200,0"/>
+  <vType id="metro" vClass="rail_urban" length="40" personCapacity="200" color="120,60,200"/>
+  <flow id="B1" type="bus" line="B1" begin="0" end="3600" period="300">
+    <route edges="road_in road_out">
+      <stop busStop="bs_home" duration="10" until="20"/>
+      <stop busStop="bs_mid" duration="10" until="60"/>
+      <stop busStop="bs_hub" duration="10" until="190"/>
+    </route>
+  </flow>
+  <flow id="M1" type="metro" line="M1" begin="0" end="3600" period="120">
+    <route edges="st_W rail_1 rail_2 rail_3 st_E rail_4 rail_5 rail_6">
+      <stop busStop="ms_W" duration="20" until="30"/>
+      <stop busStop="ms_E" duration="20" until="100"/>
+    </route>
+  </flow>
+</routes>

@@ -1,0 +1,7 @@
+<additional>
+  <busStop id="bs_home" lane="road_in_1" startPos="60" endPos="90" friendlyPos="true" lines="B1"/>
+  <busStop id="bs_mid" lane="road_in_1" startPos="460" endPos="490" friendlyPos="true" lines="B1"/>
+  <busStop id="bs_hub" lane="road_in_1" startPos="1900" endPos="1940" friendlyPos="true" lines="B1"/>
+  <busStop id="ms_W" lane="st_W_1" startPos="10" endPos="60" friendlyPos="true" lines="M1"/>
+  <busStop id="ms_E" lane="st_E_1" startPos="10" endPos="60" friendlyPos="true" lines="M1"/>
+</additional>

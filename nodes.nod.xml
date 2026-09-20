@@ -1,0 +1,17 @@
+<nodes>
+  <node id="T0" x="-1400" y="40"/>
+  <node id="J" x="560" y="40"/>
+  <node id="Wd" x="600" y="0"/>
+  <node id="P" x="616" y="0"/>
+  <node id="Ed" x="824" y="0"/>
+  <node id="E1" x="900" y="0"/>
+  <node id="E2" x="1100" y="0"/>
+  <node id="Mw0" x="560" y="80"/>
+  <node id="Mw1" x="640" y="80"/>
+  <node id="R1" x="640" y="180"/>
+  <node id="R2" x="880" y="180"/>
+  <node id="Me0" x="880" y="80"/>
+  <node id="Me1" x="960" y="80"/>
+  <node id="R3" x="960" y="260"/>
+  <node id="R4" x="560" y="260"/>
+</nodes>
