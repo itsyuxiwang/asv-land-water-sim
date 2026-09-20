@@ -4,11 +4,14 @@ A compact, reproducible prototype of an **integrated land–water simulation pla
 > Note: The code in this repo were developed with the assistance of an AI coding tool. All generated code has been reviewed, tested and is maintained by the author, who takes full responsibility for its correctness and for the results reported here.
 ---
 
-The prototype runs on Python 3.12 with four third-party packages, all installed with `pip`: **Eclipse SUMO 1.27**
-(`eclipse-sumo`, including `netconvert` and `sumo-gui`) for land traffic, its Python bindings **TraCI** and
-**sumolib** for run-time control and network access, **NumPy** for seeded random sampling, and **Matplotlib** (with
-Pillow) for figures and the GIF. Everything else uses the standard library (`dataclasses`, `argparse`, `json`, `csv`,
-`unittest`).
+The prototype runs on Python 3.12; all packages are installed with `pip`.
+
+| Package | Version | Role |
+|---|---|---|
+| Eclipse SUMO (`eclipse-sumo`, incl. `netconvert`, `sumo-gui`) | 1.27.1 | Land traffic simulator |
+| TraCI, sumolib | 1.27.1 | Python bindings: run-time control of SUMO, network access |
+| NumPy | 2.x | Seeded random sampling (demand, heterogeneity, choice draws) |
+| Matplotlib (+ Pillow) | 3.11 | Figures and GIF animation |
 
 ---
 
