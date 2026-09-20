@@ -112,25 +112,44 @@ Both runs use two vessels of 12 passengers, a metro every 300 s and the same 300
 
 Same demand (300 travellers, 40 min, seed 1), bus every 300 s, metro every 300 s; fleet size and policy varied.
 
-| Vessels | Policy | ASV share | Mean pier wait | Door-to-door ASV / Metro | Sailings (empty) | Load factor |
-|---|---|---|---|---|---|---|
-| 1 | demand-responsive | 35 % | 547 s | 1 229 / 767 s | 18 (9) | 48 % |
-| 1 | timetable, 300 s | 43 % | 648 s | 1 323 / 768 s | 24 (14) | 42 % |
-| 2 | demand-responsive | 61 % | 120 s | 795 / 768 s | 36 (18) | 42 % |
-| 2 | timetable, 150 s | 55 % | 151 s | 835 / 766 s | 47 (32) | 29 % |
-| 3 | demand-responsive | 79 % | 48 s | 740 / 747 s | 48 (24) | 41 % |
-| 3 | timetable, 100 s | 64 % | 106 s | 795 / 752 s | 69 (49) | 23 % |
+| Vessels | Policy | ASV share | Mean pier wait | Door-to-door ASV / Metro | Sailings (empty) | Empty departures | Load factor | m sailed per pax |
+|---|---|---|---|---|---|---|---|---|
+| 1 | on-demand | 35 % | 547 s | 1 229 / 767 s | 18 (9) | 0 of 9 | 48 % | 43 |
+| 1 | timetable, 300 s | 43 % | 648 s | 1 323 / 768 s | 24 (14) | 2 of 12 | 42 % | 50 |
+| 2 | on-demand | 61 % | 120 s | 795 / 768 s | 36 (18) | 0 of 18 | 42 % | 49 |
+| 2 | timetable, 150 s | 55 % | 151 s | 835 / 766 s | 47 (32) | 9 of 24 | 29 % | 71 |
+| 3 | on-demand | 79 % | 48 s | 740 / 747 s | 48 (24) | 0 of 24 | 41 % | 50 |
+| 3 | timetable, 100 s | 64 % | 106 s | 795 / 752 s | 69 (49) | 15 of 35 | 23 % | 89 |
 
-*Table 1. Metro every 300 s. All twelve runs, including metro every 120 s: `results/compare.csv`, `results/compare.png`.*
+*Table 1. Metro every 300 s. "Empty departures" counts sailings that left the west dock without passengers, out of all
+departures from that dock; the empty returns are excluded because they are unavoidable. All twelve runs, including metro
+every 120 s: `results/compare.csv`, `results/compare.png`.*
 
 1. **Supply and demand interact.** One vessel saturates: the published wait reaches 9–14 min and about 60 % of travellers
    switch to the metro. Three vessels bring the wait below one minute and the chains reach equilibrium (740 vs 747 s
    door-to-door) with a 79 % vessel share.
-2. **Demand-responsive dispatch dominates the timetable** at equal fleet size: shorter waits, higher share and load
-   factor, fewer empty sailings. Empty distance cannot fall below ≈ 50 % in this one-directional peak.
-3. **Transfer coordination outweighs frequency.** With a metro every 120 s the vessel share is *higher* than with
-   300 s: the bus reaches the hub at +190 s, the walk takes 100 s, and the 300 s train leaves 40 s later whereas the
-   120 s train leaves 100 s later.
+2. **On-demand dispatch dominates the timetable** at equal fleet size: shorter waits, higher share and load factor,
+   and no avoidable empty sailings (0 empty departures against 17–43 % under the timetable), hence 43–50 m sailed per
+   passenger against 50–89 m. The total empty share stays near 50 % under both policies because every loaded crossing
+   needs an empty return in this one-directional peak; only return demand could lower it.
+3. **Transfer coordination outweighs frequency, in the travellers' expectations.** Doubling the metro frequency does
+   not reduce the vessel share: it is higher in four of the six pairs in Table 2 and lower only where the vessel
+   service is saturated and the published wait dominates the choice. The cause is the planned transfer. The bus reaches
+   the hub at +190 s of its cycle and the walk to the station takes about 100 s; a train every 300 s (departing +330 s)
+   is expected 40 s after arrival, a train every 120 s (+390 s) 100 s after. Travellers choose on these timetable-based
+   expectations, so the more frequent metro looks *slower* at the hub. A single random seed is used, so differences of
+   a few percentage points are within noise.
+
+| Vessels | Policy | ASV share, metro 300 s | ASV share, metro 120 s |
+|---|---|---|---|
+| 1 | on-demand | 35 % | 39 % |
+| 1 | timetable, 300 s | 43 % | 42 % |
+| 2 | on-demand | 61 % | 71 % |
+| 2 | timetable, 150 s | 55 % | 51 % |
+| 3 | on-demand | 79 % | 87 % |
+| 3 | timetable, 100 s | 64 % | 74 % |
+
+*Table 2. Sensitivity to the metro headway. All other settings as in Table 1; source `results/compare.csv`.*
 
 ---
 
