@@ -122,8 +122,7 @@ Same demand (300 travellers, 40 min, seed 1), bus every 300 s, metro every 300 s
 | 3 | timetable, 100 s | 64 % | 106 s | 795 / 752 s | 69 (49) | 15 of 35 | 23 % | 89 |
 
 *Table 1. Metro every 300 s. "Empty departures" counts sailings that left the west dock without passengers, out of all
-departures from that dock; the empty returns are excluded because they are unavoidable. All twelve runs, including metro
-every 120 s: `results/compare.csv`, `results/compare.png`.*
+departures from that dock; the empty returns are excluded because they are unavoidable.
 
 1. **Supply and demand interact.** One vessel saturates: the published wait reaches 9–14 min and about 60 % of travellers
    switch to the metro. Three vessels bring the wait below one minute and the chains reach equilibrium (740 vs 747 s
