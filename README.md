@@ -12,9 +12,9 @@ The synthetic study case is a morning peak in a river-side town. Three hundred c
 
 The vessel service is the object of study; the metro is the incumbent alternative against which it competes. Fleet size, dispatch policy and metro headway are the scenario variables (Section 6).
 
-
+![Network layout](fig/network_layout.png)
 *Figure 1. Compiled network. Top: whole network with the 1 960 m residential road and three bus stops. Bottom: hub area to scale with node coordinates, edge types, stops, docks and sea lanes.*
-
+![Animation](fig/anim_demand_fleet2_cap12_metro300_end1400.gif)
 Homes lie 1.3–1.9 km from the hub, so the bus is the rational access mode. B1 runs every 300 s with timetable offsets +20/+60/+190 s; M1 runs every 300 s (120 s in sensitivity runs) with offsets +30/+100 s. The river is 208 m wide; the vessels use separate eastbound and westbound lanes; the rail loop is one-directional.
 
 ---
@@ -63,11 +63,10 @@ $\hat w \leftarrow \hat w + 0.3\,(w - \hat w)$, acting as a real-time informatio
 
 Both runs use two vessels of 12 passengers, a metro every 300 s and the same 300 travellers (seed 1); only the policy differs.
 
-![Timetable scenario, two vessels](results/result_timetable_fleet2_cap12_metro300.png)
-
+![Timetable scenario, two vessels](fig/result_timetable_fleet2_cap12_metro300.png)
 *Figure 3. Timetable policy (departure every 150 s). Left: pier queue (blue) and published expected wait (red dashed). Centre: door-to-door time by chain. Right: vessel tracks.*
 
-![Demand-responsive scenario, two vessels](results/result_demand_fleet2_cap12_metro300.png)
+![Demand-responsive scenario, two vessels](fig/result_demand_fleet2_cap12_metro300.png)
 
 *Figure 4. Demand-responsive policy (depart when full or after 120 s of waiting; idle vessels return to the west dock). Same panels.*
 
@@ -98,6 +97,66 @@ Both runs use two vessels of 12 passengers, a metro every 300 s and the same 300
 * Timetable: 47 sailings, 32 empty (68 % of distance) — it departs on schedule whether or not anyone waits.
 * Demand-responsive: 36 sailings, exactly 18 empty (48 %) — one empty return per loaded crossing, the structural minimum in a one-directional peak; fewer, fuller sailings raise the load factor from 29 % to 42 %.
 
+---
+
+## 5. Scenario comparison and conclusions
+
+Same demand (300 travellers, 40 min, seed 1), bus every 300 s, metro every 300 s; fleet size and policy varied.
+
+| Vessels | Policy | ASV share | Mean pier wait | Door-to-door ASV / Metro | Sailings (empty) | Load factor |
+|---|---|---|---|---|---|---|
+| 1 | demand-responsive | 35 % | 547 s | 1 229 / 767 s | 18 (9) | 48 % |
+| 1 | timetable, 300 s | 43 % | 648 s | 1 323 / 768 s | 24 (14) | 42 % |
+| 2 | demand-responsive | 61 % | 120 s | 795 / 768 s | 36 (18) | 42 % |
+| 2 | timetable, 150 s | 55 % | 151 s | 835 / 766 s | 47 (32) | 29 % |
+| 3 | demand-responsive | 79 % | 48 s | 740 / 747 s | 48 (24) | 41 % |
+| 3 | timetable, 100 s | 64 % | 106 s | 795 / 752 s | 69 (49) | 23 % |
+
+*Table 1. Metro every 300 s. All twelve runs, including metro every 120 s: `results/compare.csv`, `results/compare.png`.*
+
+1. **Supply and demand interact.** One vessel saturates: the published wait reaches 9–14 min and about 60 % of travellers
+   switch to the metro. Three vessels bring the wait below one minute and the chains reach equilibrium (740 vs 747 s
+   door-to-door) with a 79 % vessel share.
+2. **Demand-responsive dispatch dominates the timetable** at equal fleet size: shorter waits, higher share and load
+   factor, fewer empty sailings. Empty distance cannot fall below ≈ 50 % in this one-directional peak.
+3. **Transfer coordination outweighs frequency.** With a metro every 120 s the vessel share is *higher* than with
+   300 s: the bus reaches the hub at +190 s, the walk takes 100 s, and the 300 s train leaves 40 s later whereas the
+   120 s train leaves 100 s later.
+
+---
+
+## 6. Reproduction
+
+```bash
+source ../.venv/bin/activate                  # SUMO 1.27.1, numpy, matplotlib
+python build_network.py && python plot_network.py          # network + Figure 1
+python run.py                                 # 2 vessels, demand-responsive, metro 300 s
+python run.py --fleet 2 --policy timetable --headway 150   # Figure 3
+python run.py --gif 1400 --end 1400           # Figure 2
+for f in 1 2 3; do python run.py --fleet $f --policy demand; \
+                    python run.py --fleet $f --policy timetable --headway $((300 / f)); done
+python compare.py                             # Table 1
+```
+
+Options: `--fleet --capacity --cruise`, `--policy --headway --max-wait`, `--bus-period --metro-period`,
+`--travellers --demand-end --asc-asv`, `--dt --seed --gui --screenshot --gif`.
+
+| File | Content |
+|---|---|
+| `layout.py` | Geometry, names, dock positions, sea lanes, paths |
+| `build_network.py`, `plot_network.py` | Network, stops, timetables, config; Figure 1 |
+| `travellers.py` | Demand, expected times, logit, tour creation |
+| `asv.py`, `asv_operator.py` | Vessel model; policies and `Operator` |
+| `run.py`, `compare.py`, `test_run_gif.py` | Coupled loop, KPIs, figures, GIF; cross-run comparison; unit tests |
+
+English docstrings describe interfaces; Chinese comments explain the logic; `GUIDE_zh.md` is a line-by-line commentary.
+
+## References
+
+* Zhou, Z. et al. (2026). Simulation-based assessment of operational ridesharing strategies for shared autonomous
+  vehicles in large-scale networks. *European Transport Research Review*, 18, 28. https://doi.org/10.1186/s12544-026-00787-4
+* Lopez, P. A. et al. (2018). Microscopic traffic simulation using SUMO. *IEEE ITSC*. https://sumo.dlr.de
+* Wardman, M. (2004). Public transport values of time. *Transport Policy*, 11(4), 363–377.
 
 
 
