@@ -4,6 +4,14 @@ A compact, reproducible prototype of an **integrated land–water simulation pla
 > Note: The code in this repo were developed with the assistance of an AI coding tool. All generated code has been reviewed, tested and is maintained by the author, who takes full responsibility for its correctness and for the results reported here.
 ---
 
+The prototype runs on Python 3.12 with four third-party packages, all installed with `pip`: **Eclipse SUMO 1.27**
+(`eclipse-sumo`, including `netconvert` and `sumo-gui`) for land traffic, its Python bindings **TraCI** and
+**sumolib** for run-time control and network access, **NumPy** for seeded random sampling, and **Matplotlib** (with
+Pillow) for figures and the GIF. Everything else uses the standard library (`dataclasses`, `argparse`, `json`, `csv`,
+`unittest`).
+
+---
+
 ## 1. Study scenario
 
 The synthetic study case is a morning peak in a river-side town. Three hundred commuters leave a residential area on the west bank between 0 and 40 min and travel to an office district on the east bank. All of them take feeder bus **B1** to the river-side hub, where the river can be crossed in two ways:
