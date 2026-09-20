@@ -82,21 +82,28 @@ Both runs use two vessels of 12 passengers, a metro every 300 s and the same 300
 
 **Left panels — queue and published wait**
 
-* Queue peaks (34–36 travellers at 1 200–1 500 s) are the same in both runs: a bus unloads about 25 travellers at once, more than one vessel holds, so the peaks come from the feeder bus, not the policy.
-* Timetable: at most 12 travellers cleared every 150 s regardless of demand → sawtooth queue, published wait above 300 s.
-* Demand-responsive: a vessel leaves as soon as it is full and the second, returned empty, follows → published wait below 230 s, feedback oscillation damped.
-* After demand ends (2 400 s) the timetable keeps sailing empty slots; the demand-responsive vessels wait for the 120 s trigger, so their published wait settles near 100 s rather than 40 s — at low demand $w_{max}$, not the fleet, sets the floor.
+* Queue peaks (34–36 travellers around 1 200–1 500 s) are alike in both runs: each bus unloads more travellers at once
+  than one vessel holds, so the peaks come from the feeder bus, not the policy.
+* Timetable: the queue decays in a sawtooth as each slot clears at most one vessel load; the published wait climbs
+  above 300 s.
+* On-demand: a vessel leaves as soon as it is full and the second, returned empty, follows; the published wait
+  stays below 230 s and the feedback oscillation is damped.
+* After demand ends (2 400 s) the published wait settles near 40 s under the timetable but near 100 s under the
+  on-demand policy, which waits for its 120 s trigger before departing: at low demand the trigger, not the
+  fleet, sets the floor.
 
 **Centre panels — door-to-door time**
 
-* Demand-responsive: 61 % vessel share; vessel chain within 30 s of the metro (795 vs 768 s).
-* Timetable: 55 % share; vessel distribution wider and 70 s slower than the metro, because slot waiting adds delay and variance.
+* On-demand: 61 % vessel share, mean pier wait 120 s; the vessel chain's distribution overlaps the metro's.
+* Timetable: 55 % share, mean pier wait 151 s; the vessel distribution is wider and shifted to longer times, because
+  slot waiting adds delay and variance.
 
 **Right panels — fleet efficiency**
 
-* Timetable: 47 sailings, 32 empty (68 % of distance) — it departs on schedule whether or not anyone waits.
-* Demand-responsive: 36 sailings, exactly 18 empty (48 %) — one empty return per loaded crossing, the structural minimum in a one-directional peak; fewer, fuller sailings raise the load factor from 29 % to 42 %.
-
+* Timetable: 24 sailings per vessel, 68 % of the distance sailed empty — it departs on schedule whether or not anyone
+  waits.
+* On-demand: 18 sailings per vessel, 48 % empty — one empty return per loaded crossing, the structural minimum
+  in a one-directional peak.
 ---
 
 ## 5. Scenario comparison and conclusions
